@@ -1,0 +1,57 @@
+@startuml Bomberman
+
+class Juego
+class Jugador
+
+class Habilidad
+class PotenciaFuego
+class NumeroBombas
+class Bomberman 
+class Velocidad
+class Mejora 
+class Enemigo
+
+class Sala
+class Laberinto
+class Roca
+class Puerta 
+class ObjetoDestruible
+class ObjetoIndestructible
+class Pared
+
+Laberinto "1" *-- "*" Sala
+Sala "1" *-- "1" Puerta
+Sala "1" *-- "*" Roca
+Sala "1" *-- "*" Enemigo
+Sala "1" *-- "*" Pared
+Roca "0..1" *-- "1" Item
+
+Puerta --|> Item
+PowerUp --|> Item
+Enemigo --|> ObjetoDestruible
+Roca --|> ObjetoDestruible
+Bomba o-- ObjetoDestruible
+Laberinto --|> ObjetoIndestructible
+
+class Bomba
+class Item
+class Fuego
+class Fireup
+class Patines
+
+Juego "1" *-- "1" Jugador
+Jugador "1" o-- "1" Bomberman
+Bomberman "1" *-- "*" Habilidad
+
+Bombup --|> PowerUp
+Fireup --|> PowerUp
+Patines --|> PowerUp
+
+PotenciaFuego --|> Habilidad
+Velocidad --|> Habilidad
+NumeroBombas --|> Habilidad
+
+PowerUp --o Habilidad
+
+NumeroBombas *-- Bomba
+@enduml
