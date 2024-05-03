@@ -1,21 +1,24 @@
 #include <string>
 #include <list>
-#include <vector.hpp>
-using namespace;
+#include <Vector.hpp>
+using namespace std;
 
-class dibujo
+class Dibujo
 {
 private:
     list<string> lineas;
-    vector posicion;
-    vector velocidad;
+    Vector posicion;
+    Vector velocidad;
+
 public:
-    dibujo() {}
-    ~dibujo() {}
-    void AgregarLinea(string linea){
+    Dibujo() {}
+    ~Dibujo() {}
+    void AgregarLinea(string linea)
+    {
         this->lineas.push_back(linea);
     }
-    list<string> ObtenerLineas(){
+    list<string> ObtenerLineas()
+    {
         return this->lineas;
     }
 };

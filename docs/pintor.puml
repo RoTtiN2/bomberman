@@ -1,36 +1,32 @@
-@startuml Pintor 
+@startuml Pintor
 
 class Dibujo{
-    -Lineas :  list<string>
-    -Posicion : Vector
-    -Velocidad : Vector
+    -lineas : list<string>
+    -posicion : Vector
+    -velocidad : Vector
+    -estilo : Estilo
     +AgregarLinea()
-    -Estilo : Estilo
 }
-
 class Vector{
     -posX
-    -PosY
+    -posY
 }
-
 class Archivo{
     -directorio : string
     +Leer(Dibujo)
     +LeerAnimacion(Animacion)
 }
-
 class Estilo{
-    -ColorFondo
-    -ColorTexto
+    -colorFondo
+    -colorTexto
 }
-
 class Animacion{
-    -Fotogramas : <Dibujo>
-    -FotogramaActual : int
+    -fotogramas : list<Dibujo>
+    -fotogramaActual : int
 }
 
 class Lienzo{
-    -Dibujos : list<Dibujo>
+    -dibujos : list<Dibujo>
     +Pintar()
     +AgregarDibujo(Dibujo)
 }
@@ -40,3 +36,5 @@ Archivo o-- Dibujo
 Dibujo *-- Estilo
 Archivo o-- Animacion
 Lienzo o-- Dibujo
+
+@enduml
